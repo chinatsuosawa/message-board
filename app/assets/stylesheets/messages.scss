@@ -1,3 +1,74 @@
 // Place all the styles related to the messages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/**************************************************
+
+   massage.css
+   create : 2016/10/01
+            c.osawa
+   update : 
+            
+  
+   MassageBoard TOP頁ページ用css
+
+ *************************************************/
+
+/**************************************************
+  .panel-title h3
+
+  font-family:
+
+ **************************************************/
+ .panel-title h3 {
+     font-family: "メイリオ", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", sans-serif;
+ }
+
+
+
+/**************************************************
+  footer
+
+  margin: 外側余白 上下左右0
+  padding: 内側余白 上下左右0
+  font-size: 12px
+  text-align: 文字位置 中央
+  color:  文字色 設定
+
+ **************************************************/
+footer {
+  margin-top: 40px;
+  padding: 0;
+  font-size: 12px;
+  text-align: center;
+  color: #666;
+}
+
+
+/**************************************************
+  .form-group 
+
+  text-align: right;
+  padding-right: 0;
+
+ **************************************************/
+.form-group {
+  .form-label {
+    text-align: right;
+    padding-right: 0;
+  }
+}
+
+// message_board
+#board {
+  max-height: 30em;
+  overflow-y: scroll;
+}
+
+.message_wrapper {
+  display: block;
+  
+  .massage_body {
+    word-break: break-all;
+  }
+}

@@ -2,21 +2,54 @@
   <div class="panel-heading">
     メッセージ一覧
   </div>
-    
-  <div class="panel-body">
-    <% @messages.each do |message| %>
-      <span class="label label-info"><%= message.name %></span>
-      <%= message.body %>
-      <br>
-    <% end %>
+
+  <div class="panel-body" id="board">
+    <div class="table-responsive">
+      <table class="table">
+        <% @messages.each do |message| %>
+        <tr>
+          <td class="col-sm-1 col-lg-1">
+            <%= content_tag :div, message.name, class: 'label label-info' %>
+          </td>
+          <td class="col-sm-8 col-lg-9">
+            <div class="message_wrapper">
+              <%= simple_format content_tag :span, message.body, class: 'message_body' %>
+            </div>
+          </td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
   </div>
 </div>
 
-<%= form_for(@message) do |f| %>
-  名前:
-  <%= f.text_field :name %>
+<script>
+  $("#board").scrollTop($("#board")[0].scrollHeight);
+</script>
 
-  内容:
-  <%= f.text_field :body %>
-  <%= f.submit class: "btn btn-sm btn-primary" %>
+
+<%= form_for(@message, html: { class: 'form-horizontal'}) do |f| %>
+  
+  <div class="form-group">
+    <%= f.label :name, '名前', class: 'form-label col-sm-offset-2 col-sm-1' %>
+    <div class="col-sm-6">
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :body, '内容', class: 'form-label col-sm-offset-2 col-sm-1' %>
+<!-- ↓これだと関連付けされない -->
+<!--    <label for="message_body class="form-label col-sm-3">内容</label> -->
+    <div class="col-sm-6">
+      <%= f.text_area :body, class: "form-control", :rows => 6 %>
+    </div>
+  </div>
+  
+  <!-- 送信ボタン -->
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-9">
+      <%= f.submit class: "btn btn-sm btn-primary" %>
+    </div>
+  </div>
 <% end %>

@@ -1,22 +1,45 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>MessageBoard</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <nav class="navbar">
-    <div class="container">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">Message Board</a>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="簡易MessageBoard">
+  
+    <!-- MessageBoard 登録・一覧画面 -->
+    <title>MessageBoard</title>
+  
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- jQuery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Message Board</a>
+        </div>
       </div>
+    </nav>
+  
+    <!-- maincontents-->
+    <div class="container">
+      <%= yield %>
     </div>
-  </nav>
-  <div class="container">
-    <%= yield %>
-  </div>
-</body>
+
+    <!-- footer -->
+    <footer>
+      <p><a href="https://github.com/chinatsuosawa">https://github.com/chinatsuosawa</a></p>
+      <p>&copy; 2016 chinatsuosawa</p>
+    </footer>
+  </body>
+  
 </html>
