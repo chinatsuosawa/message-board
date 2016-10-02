@@ -20,6 +20,7 @@
         <% end %>
       </table>
     </div>
+
   </div>
 </div>
 
@@ -27,9 +28,9 @@
   $("#board").scrollTop($("#board")[0].scrollHeight);
 </script>
 
-
 <%= form_for(@message, html: { class: 'form-horizontal'}) do |f| %>
   
+  <!-- 入力欄：名前 -->
   <div class="form-group">
     <%= f.label :name, '名前', class: 'form-label col-sm-offset-2 col-sm-1' %>
     <div class="col-sm-6">
@@ -37,10 +38,9 @@
     </div>
   </div>
   
+  <!-- 入力欄：内容 -->
   <div class="form-group">
     <%= f.label :body, '内容', class: 'form-label col-sm-offset-2 col-sm-1' %>
-<!-- ↓これだと関連付けされない -->
-<!--    <label for="message_body class="form-label col-sm-3">内容</label> -->
     <div class="col-sm-6">
       <%= f.text_area :body, class: "form-control", :rows => 6 %>
     </div>
@@ -52,4 +52,5 @@
       <%= f.submit class: "btn btn-sm btn-primary" %>
     </div>
   </div>
+
 <% end %>

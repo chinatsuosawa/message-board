@@ -7,8 +7,8 @@
    massage.css
    create : 2016/10/01
             c.osawa
-   update : 
-            
+   update : 2016/10/02
+            c.osawa
   
    MassageBoard TOP頁ページ用css
 
@@ -20,11 +20,53 @@
   font-family:
 
  **************************************************/
- .panel-title h3 {
+.panel-title h3 {
      font-family: "メイリオ", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", sans-serif;
- }
+}
 
 
+/**************************************************
+  .form-group 
+
+  text-align: 文字位置 右
+  padding-right: 内側余白 右0
+
+ **************************************************/
+.form-group {
+  .form-label {
+    text-align: right;
+    padding-right: 0;
+  }
+}
+
+/**************************************************
+  message_board
+  #board
+
+  max-height: 高さ上限 30em
+  overflow-y: 高さ上限よりカラムが多ければ縦スクロール
+
+ **************************************************/
+#board {
+  max-height: 30em;
+  overflow-y: scroll;
+}
+
+/**************************************************
+  .message_wrapper
+
+  display: ブロックボックスを生成
+  .massage_body
+    word-break: 単語改行なし
+
+ **************************************************/
+.message_wrapper {
+  display: block;
+  
+  .massage_body {
+    word-break: break-all;
+  }
+}
 
 /**************************************************
   footer
@@ -42,33 +84,4 @@ footer {
   font-size: 12px;
   text-align: center;
   color: #666;
-}
-
-
-/**************************************************
-  .form-group 
-
-  text-align: right;
-  padding-right: 0;
-
- **************************************************/
-.form-group {
-  .form-label {
-    text-align: right;
-    padding-right: 0;
-  }
-}
-
-// message_board
-#board {
-  max-height: 30em;
-  overflow-y: scroll;
-}
-
-.message_wrapper {
-  display: block;
-  
-  .massage_body {
-    word-break: break-all;
-  }
 }
