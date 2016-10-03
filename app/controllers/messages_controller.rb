@@ -9,13 +9,23 @@ class MessagesController < ApplicationController
 
  ## メッセージ作成
   def create
+    
     # インスタンス生成
     # 画面からの引数message_paramsをだ@messageに代入
     @message = Message.new(message_params)
+    
     # データベースに保存
-    @message.save
-    # ルートURLにリダイレクト
-    redirect_to root_path , notice: 'メッセージを保存しました'
+    if @message.save
+      # ルートURLにリダイレクト
+      redirect_to root_path , notice: 'メッセージを保存しました'
+    else
+      # メッセージが保存できなかった時
+      @messages = Message.all
+      flash.now[:alert] = "メッセージの保存に失敗しました。"
+      render 'index'
+    end
+      
+
   end
 
   # 画面からのパラメータはparamsで取得可能（StringParameter)

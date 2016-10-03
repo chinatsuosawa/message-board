@@ -24,6 +24,14 @@
      font-family: "メイリオ", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", sans-serif;
 }
 
+// ここ後で修正
+.field_with_errors{
+  display: inline-block;
+  border: 1px solid #f00;
+  width: 100%;
+}
+ぁんｃ
+
 
 /**************************************************
   .form-group 
