@@ -1,0 +1,40 @@
+<!-- 入力項目-->
+<%= form_for(@message, html: { class: 'form-horizontal'}) do |f| %>
+  
+  <% if @message.errors.present? %>
+    <div class="alert alert-danger">
+      <%= alert %>
+      <ul>
+        <% @message.errors.full_messages.each do |full_message| %>
+          <li>
+            <%= full_message %>
+          </li>
+        <% end %> 
+      </ul>
+    </div>
+  <% end %>
+  
+  <!-- 入力欄：名前 -->
+  <div class="form-group">
+    <%= f.label :name, '名前', class: 'form-label col-sm-offset-2 col-sm-1' %>
+    <div class="col-sm-6">
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+  </div>
+  
+  <!-- 入力欄：内容 -->
+  <div class="form-group">
+    <%= f.label :body, '内容', class: 'form-label col-sm-offset-2 col-sm-1' %>
+    <div class="col-sm-6">
+      <%= f.text_area :body, class: "form-control", :rows => 6 %>
+    </div>
+  </div>
+  
+  <!-- 送信ボタン -->
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-9">
+      <%= f.submit class: "btn btn-sm btn-primary" %>
+    </div>
+  </div>
+
+<% end %>

@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
   root 'messages#index'
-  resources :messages , only: [:create]
+  resources :messages , except: [:index, :new]
+
+  # 20161005 c.osawa
+  # resources :messages , only: [:create]
 
   # 20160928 Mr.Kimura
   # get 'messages/index'
