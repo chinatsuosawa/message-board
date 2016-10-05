@@ -17,6 +17,11 @@
               <%= simple_format content_tag :span, message.body, class: 'message_body' %>
             </div>
           </td>
+          <td>
+            (<%= link_to "edit" , edit_message_path(message) %>
+            <%= link_to "destroy" , message , method: :delete, data: { confirm: '削除してもよろしいですか？' } %>
+            )
+          </td>
         </tr>
         <% end %>
       </table>
@@ -29,6 +34,6 @@
 <script>
   $("#board").scrollTop($("#board")[0].scrollHeight);
 </script>
-ｇいｔ
+
 <!-- 入力フォーム読込 -->
 <%= render 'form' %>
