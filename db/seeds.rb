@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+100.times do
+  age = [*(1..99)].sample
+  Message.create!(name: Faker::Name.first_name, age: age, body: Faker::Lorem.characters(30))
+end

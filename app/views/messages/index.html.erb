@@ -2,38 +2,8 @@
   <div class="panel-heading">
     メッセージ一覧
   </div>
-
-  <!-- 登録済みメッセージの表示 -->
-  <div class="panel-body" id="board">
-    <div class="table-responsive">
-      <table class="table">
-        <% @messages.each do |message| %>
-        <tr>
-          <td class="col-sm-1 col-lg-1">
-            <%= content_tag :div, message.name, class: 'label label-info' %>
-          </td>
-          <td class="col-sm-8 col-lg-9">
-            <div class="message_wrapper">
-              <%= simple_format content_tag :span, message.body, class: 'message_body' %>
-            </div>
-          </td>
-          <td>
-            (<%= link_to "edit" , edit_message_path(message) %>
-            <%= link_to "destroy" , message , method: :delete, data: { confirm: '削除してもよろしいですか？' } %>
-            )
-          </td>
-        </tr>
-        <% end %>
-      </table>
-    </div>
-
-  </div>
+  <%= render 'board', messages: @messages %>
 </div>
-
-<!-- 登録済みメッセージ スクロール制御 -->
-<script>
-  $("#board").scrollTop($("#board")[0].scrollHeight);
-</script>
 
 <!-- 入力フォーム読込 -->
 <%= render 'form' %>

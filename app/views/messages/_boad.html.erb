@@ -1,0 +1,33 @@
+<!-- 登録済みメッセージの表示 -->
+<div class="panel-body" id="board">
+  <div class="table-responsive">
+    <table class="table">
+      <% messages.each do |message| %>
+      <tr>
+        <td class="col-sm-1 col-lg-1">
+          <%= content_tag :div, message.name, class: 'label label-info' %>
+        </td>
+        <td class="col-sm-1 col-lg-1">
+          <%= content_tag :div, message.age.present? ? message.age.to_s + "歳" : "年齢不詳",
+                                class: 'label label-default' %>
+        </td>
+        <td class="col-sm-7 col-lg-7">
+          <div class="message_wrapper">
+            <%= simple_format content_tag :span, message.body, class: 'message_body' %>
+          </div>
+        </td>
+        <td class="col-sm-2 col-lg-2 edi-des-label">
+          <%= link_to "edit" , edit_message_path(message), class: 'label label-warning' %>
+          <%= link_to "destroy" , message, class: 'label label-danger' , method: :delete, 
+                                  data: { confirm: '削除してもよろしいですか？' } %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<!-- 登録済みメッセージ スクロール制御 -->
+<script>
+  $("#board").scrollTop($("#board")[0].scrollHeight);
+</script>

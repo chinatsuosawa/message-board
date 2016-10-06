@@ -48,10 +48,10 @@ class MessagesController < ApplicationController
 
   # 画面からのパラメータはparamsで取得可能（StringParameter)
   # requireメソッドでキー:messageの検証
-  # permitメソッドで値を:name,:bodyのみ受取可能なようフィルタリング
+  # permitメソッドで値を:name,:body,:ageのみ受取可能なようフィルタリング
   private
   def message_params
-    params.require(:message).permit(:name, :body)
+    params.require(:message).permit(:name, :body, :age)
   end
 
   def set_message
